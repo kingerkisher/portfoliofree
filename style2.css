@@ -1,0 +1,236 @@
+/* GENERAL */
+/* Hide Scrollbar on all browsers */
+/* Hide scrollbar but keep scroll functionality */
+/* Hide scrollbar visually, but keep scroll functionality */
+body,
+html {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+
+body {
+    background-color: #F7F6E4;
+    color: #171717;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #171717 !important;
+}
+
+.navbar-brand,
+.nav-link {
+    color: #F7F6E4 !important;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background-color: #171717;
+    color: #F7F6E4;
+}
+
+.hero-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 4px solid #F7F6E4;
+    box-shadow: 0 0 15px rgba(247, 246, 228, 0.3);
+}
+
+/* SECTION BACKGROUNDS */
+section.bg-dark-section {
+    background-color: #171717;
+    color: #F7F6E4;
+}
+
+section.bg-light-section {
+    background-color: #F7F6E4;
+    color: #171717;
+}
+
+/* PROJECT CARD */
+#projects .card {
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+#projects .card:hover {
+    transform: translateY(-5px);
+}
+
+/* BUTTONS — Consistent Hover Styling */
+.btn,
+.btn-outline-dark,
+.btn-primarys {
+    transition: all 0.3s ease;
+}
+
+.btn:hover,
+.btn-outline-dark:hover,
+.btn-primarys:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(183, 46, 1, 0.25);
+}
+
+/* Primary Button Style */
+.btn-primarys {
+    background-color: #B72E01;
+    border-color: #B72E01;
+    color: #fff;
+}
+
+.btn-primarys:hover {
+    background-color: #992400;
+    border-color: #992400;
+    color: #fff;
+}
+
+.btn:hover {
+    box-shadow: 0 0 12px rgba(183, 46, 1, 0.7), 0 0 20px rgba(183, 46, 1, 0.3);
+}
+
+
+/* Outline Resume Button */
+.btn-outline-dark {
+    border: 2px solid #B72E01;
+    color: #B72E01;
+    background-color: transparent;
+}
+
+.btn-outline-dark:hover {
+    background-color: #B72E01;
+    color: #fff;
+}
+
+/* COUNTERS */
+.counter {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #B72E01;
+}
+
+/* SKILLS ICON COLORS */
+#skills i.fa-html5 {
+    color: #E44D26;
+}
+
+#skills i.fa-css3-alt {
+    color: #1572B6;
+}
+
+#skills i.fa-js-square {
+    color: #F7DF1E;
+}
+
+#skills i.fa-bootstrap {
+    color: #7952B3;
+}
+
+#skills i.fa-react {
+    color: #61DAFB;
+}
+
+#skills i.fa-git-alt {
+    color: #F1502F;
+}
+
+#skills i.fa-node-js {
+    color: #68A063;
+}
+
+/* CONTACT SECTION FORM STYLING */
+#contact input,
+#contact textarea {
+    background-color: #fff;
+    color: #171717;
+    border: none;
+    border-radius: 4px;
+}
+
+#contact label {
+    color: #F7F6E4;
+}
+
+#contact .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(183, 46, 1, 0.25);
+}
+
+/* SOCIAL MEDIA ICONS */
+#contact a i {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#contact a:hover i {
+    color: #B72E01;
+    transform: scale(1.2);
+}
+
+/* FOOTER — Now part of contact section */
+footer {
+    background-color: #171717;
+    color: #F7F6E4;
+}
+
+/* Bounce In Keyframe */
+@keyframes bounceIn {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateY(5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+#backToTop {
+    width: 40px;
+    height: 40px;
+    background-color: #B72E01;
+    border: none;
+    color: #fff;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    display: none;
+    opacity: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#backToTop.show {
+    display: block;
+    opacity: 1;
+    animation: bounceIn 0.9s ease forwards;
+}
+
+#backToTop:hover {
+    background-color: #992400;
+    transform: scale(1.1);
+}
