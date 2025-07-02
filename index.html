@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clinton Freeman | Web Developer</title>
@@ -39,7 +42,7 @@
 
     <!-- Hero Section with Image -->
     <header class="hero text-white d-flex align-items-center">
-        <div class="container text-center">
+        <div class="container text-center"data-aos="zoom-in">
             <img src="./image/a6afdb107bffefa9aa828c4470cae823.png" alt="Clinton Freeman"
                 class="hero-img rounded-circle mb-4" />
             <h1 class="display-4">Hi, I'm Clinton</h1>
@@ -59,7 +62,7 @@
             <h2 class="text-center mb-5">About Me</h2>
             <div class="row align-items-center">
                 <!-- Image Column -->
-                <div class="col-md-5 mb-4 mb-md-0 text-center">
+                <div class="col-md-5 mb-4 mb-md-0 text-center" data-aos="fade-right">
                     <div class="d-flex flex-column align-items-center">
                         <img src="./image/WhatsApp Image 2025-05-21 at 14.00.50_ad037a491.png" alt="Clinton Freeman"
                             class="img-fluid rounded-circle shadow mb-3" style="max-width: 250px;" />
@@ -71,7 +74,7 @@
                 </div>
 
                 <!-- Text Column -->
-                <div class="col-md-7">
+                <div class="col-md-7" data-aos="fade-left">
                     <p>
                         I'm <strong>Clinton Freeman</strong>, a passionate and versatile <strong>Web Developer</strong>
                         who builds modern, clean, and high-performing websites. With a solid background in front-end
@@ -116,12 +119,12 @@
             <div class="row">
                 <!-- Example Project -->
                 <div class="col-md-4">
-                    <div class="card mb-4">
+                    <div class="card mb-4" data-aos="fade-up" data-aos-delay="100">
                         <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Project Screenshot">
                         <div class="card-body">
                             <h5 class="card-title">Portfolio Website</h5>
                             <p class="card-text">Built using HTML, CSS, Bootstrap, and JavaScript.</p>
-                            <a href="#" class="btn btn-outline-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-outline-dark btn-sm">View Live</a>
                         </div>
                     </div>
                 </div>
@@ -136,33 +139,33 @@
         <div class="container">
             <h2 class="text-center mb-4">Skills</h2>
             <div class="row text-center">
-                <div class="col-6 col-md-3 mb-4">
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
                     <i class="fab fa-html5 fa-3x text-danger"></i>
                     <h5 class="mt-2">HTML5</h5>
                 </div>
-                <div class="col-6 col-md-3 mb-4">
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
                     <i class="fab fa-css3-alt fa-3x text-primary"></i>
                     <h5 class="mt-2">CSS3</h5>
                 </div>
-                <div class="col-6 col-md-3 mb-4">
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
                     <i class="fab fa-js-square fa-3x text-warning"></i>
                     <h5 class="mt-2">JavaScript</h5>
                 </div>
-                <div class="col-6 col-md-3 mb-4">
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
                     <i class="fab fa-bootstrap fa-3x text-purple"></i>
                     <h5 class="mt-2">Bootstrap</h5>
                 </div>
                 <!-- Add more skills here -->
-                <div class="col-6 col-md-3 mb-4">
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
                     <i class="fab fa-php fa-3x text-info"></i>
                     <h5 class="mt-2">PhP</h5>
                 </div>
-                <div class="col-6 col-md-3 mb-4 text-center">
+                <div class="col-6 col-md-3 mb-4 text-center" data-aos="zoom-in" data-aos-delay="100">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webflow/webflow-original.svg"
                         alt="Webflow" style="height: 48px;" />
                     <h5 class="mt-2">Webflow</h5>
                 </div>
-                <div class="col-6 col-md-3 mb-4 text-center">
+                <div class="col-6 col-md-3 mb-4 text-center" data-aos="zoom-in" data-aos-delay="100">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"
                         style="height: 48px;" />
                     <h5 class="mt-2">Figma</h5>
@@ -175,7 +178,7 @@
     <section id="contact" class="py-5 text-white" style="background-color: #171717;">
         <div class="container">
             <h2 class="text-center mb-4">Contact Me</h2>
-            <form id="contactForm" class="mx-auto" style="max-width: 600px;">
+            <form id="contactForm" class="mx-auto" style="max-width: 600px;" data-aos="fade-up">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" required />
@@ -240,10 +243,12 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
+            duration: 1000,         // Animation speed (ms)
+            easing: 'ease-in-out',  // Animation style
+            once: true,             // Only animate once per element
+            mirror: false,          // Don’t animate on scroll up
         });
+
     </script>
 
 </body>
