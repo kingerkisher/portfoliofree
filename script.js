@@ -1,75 +1,372 @@
-// Contact Form Submission
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    alert('Thank you for reaching out! I will get back to you soon.');
-    this.reset();
-});
+<!DOCTYPE html>
+<html lang="en">
 
-// Animated Counters in About Section (SLOW + SMOOTH)
-const counters = document.querySelectorAll('.counter');
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-const animateCounters = () => {
-    counters.forEach(counter => {
-        counter.innerText = '0';
-        const target = +counter.getAttribute('data-target');
-
-        const updateCounter = () => {
-            const current = +counter.innerText;
-            const increment = Math.ceil(target / 300); // smaller step = slower
-
-            if (current < target) {
-                counter.innerText = `${Math.min(current + increment, target)}`;
-                setTimeout(updateCounter, 40); // slower speed
-            } else {
-                counter.innerText = target;
-            }
-        };
-
-        updateCounter();
-    });
-};
-
-// Only trigger once when About section is visible
-const aboutSection = document.getElementById('about');
-let countersStarted = false;
-
-window.addEventListener('scroll', () => {
-    const top = aboutSection.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-
-    if (top < windowHeight && !countersStarted) {
-        animateCounters();
-        countersStarted = true;
-    }
-});
-
-// Smooth scrolling for nav links
-document.querySelectorAll('a.nav-link').forEach(link => {
-    link.addEventListener('click', function (e) {
-        if (this.hash !== '') {
-            e.preventDefault();
-            const target = document.querySelector(this.hash);
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
-const backToTopBtn = document.getElementById('backToTop');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        backToTopBtn.classList.add('show');
-        backToTopBtn.style.display = 'block';
-    } else {
-        backToTopBtn.classList.remove('show');
-        backToTopBtn.style.display = 'none';
-    }
-});
-
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinton Freeman | Web Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="icon" href="./image/a6afdb107bffefa9aa828c4470cae823.png" type="image/png" />
 
 
+    <link rel="stylesheet" href="style2.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Clinton Freeman</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about" data-aos="fade-up">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects" data-aos="fade-up">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills" data-aos="fade-up">Skill</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" data-aos="fade-up">Contact</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
 
 
+    <!-- Hero Section with Image -->
+    <header class="hero text-white d-flex align-items-center">
+        <div class="container text-center" data-aos="zoom-in">
+            <img src="./image/a6afdb107bffefa9aa828c4470cae823.png" alt="Clinton Freeman"
+                class="hero-img rounded-circle mb-4" />
+            <h1 class="display-4">Hi, I'm Clinton</h1>
+            <p class="lead">A Web Developer building fast, modern websites</p>
+            <p class="lead">
+                <span id="typed-text"></span>
+            </p>
+
+            <a href="#projects" class="btn btn-primarys mt-3">View Projects</a>
+        </div>
+    </header>
+
+
+    <!-- About Me Section -->
+    <section id="about" class="bg-light-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">About Me</h2>
+            <div class="row align-items-center">
+                <!-- Image Column -->
+                <div class="col-md-5 mb-4 mb-md-0 text-center" data-aos="fade-right">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="./image/WhatsApp Image 2025-05-21 at 14.00.50_ad037a491.png" alt="Clinton Freeman"
+                            class="img-fluid rounded-circle shadow mb-3" style="max-width: 250px;" />
+
+                        <a href="Clinton-Freeman-Resume.pdf" download class="btn btn-outline-dark">
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Text Column -->
+                <div class="col-md-7" data-aos="fade-left">
+                    <p>
+                        I'm <strong>Clinton Freeman</strong>, a passionate and versatile <strong>Web Developer</strong>
+                        who builds modern, clean, and high-performing websites. With a solid background in front-end
+                        technologies like <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, and
+                        <strong>Bootstrap</strong>, I turn designs and ideas into smooth, interactive experiences.
+                    </p>
+                    <p>
+                        Whether I’m debugging lines of code or optimizing for speed and responsiveness, I enjoy every
+                        step of the process. I strive to write code that's not only functional, but also elegant,
+                        reusable, and scalable.
+                    </p>
+                    <p>
+                        I’m currently focused on improving user experience through performance and accessibility while
+                        exploring full-stack development and modern frameworks.
+                    </p>
+                    <!-- Counters -->
+                    <div class="row text-center mt-4">
+                        <div class="col-4">
+                            <h3 class="counter" data-target="15">0</h3>
+                            <p>Projects</p>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="counter" data-target="10">0</h3>
+                            <p>Clients</p>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="counter" data-target="3">0</h3>
+                            <p>Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-dark-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Projects</h2>
+
+            <!-- Project Cards Container (Required for Pagination) -->
+            <div id="project-container" class="row">
+
+                <!-- Project 1 -->
+                <div class="col-md-4">
+                    <div class="card mb-3" data-aos="fade-up" data-aos-delay="200">
+                        <img src="./image/Screenshot 2025-07-03 061201.png" class="card-img-top"
+                            alt="Project Screenshot">
+                        <div class="card-body">
+                            <h5 class="card-title">Portfolio Website</h5>
+                            <p class="card-text">A sleek developer portfolio with responsive layout, animated counters,
+                                and contact form.</p>
+
+                            <div class="tech-icons mb-2">
+                                <i class="fab fa-html5 text-danger me-2"></i>
+                                <i class="fab fa-css3-alt text-primary me-2"></i>
+                                <i class="fab fa-js-square text-warning me-2"></i>
+                                <i class="fab fa-bootstrap text-purple me-2"></i>
+                            </div>
+
+                            <div class="mb-2">
+                                <span class="badge bg-success me-1">Responsive</span>
+                                <span class="badge bg-secondary me-1">Frontend</span>
+                                <span class="badge bg-info text-dark">Bootstrap</span>
+                            </div>
+
+                            <a href="https://your-live-link.com" target="_blank"
+                                class="btn btn-outline-dark btn-sm me-2">Live Site</a>
+                            <a href="https://github.com/your-repo" target="_blank"
+                                class="btn btn-outline-dark btn-sm">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-md-4">
+                    <div class="card mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <img src="./image/Screenshot 2025-07-02 173048.png" class="card-img-top"
+                            alt="Project Screenshot">
+                        <div class="card-body">
+                            <h5 class="card-title">Fashion Design Website</h5>
+                            <p class="card-text">A responsive fashion website that showcases the tailor's designs and
+                                style, along with contact information </p>
+
+                            <div class="tech-icons mb-2">
+                                <i class="fab fa-html5 text-danger me-2"></i>
+                                <i class="fab fa-css3-alt text-primary me-2"></i>
+                                <i class="fab fa-js-square text-warning me-2"></i>
+                                <i class="fab fa-bootstrap text-purple me-2"></i>
+                            </div>
+
+                            <div class="mb-2">
+                                <span class="badge bg-success me-1">UI/UX</span>
+                                <span class="badge bg-secondary me-1">JavaScript</span>
+                                <span class="badge bg-info text-dark">HTML/CSS</span>
+                            </div>
+
+                            <a href="https://your-live-link.com" target="_blank"
+                                class="btn btn-outline-dark btn-sm me-2">Live Site</a>
+                            <a href="https://github.com/your-repo" target="_blank"
+                                class="btn btn-outline-dark btn-sm">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="col-md-4">
+                    <div class="card mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <img src="./image/Screenshot 2025-07-03 144653.png" class="card-img-top"
+                            alt="Project Screenshot">
+                        <div class="card-body">
+                            <h5 class="card-title">Celebrity Website</h5>
+                            <p class="card-text">Landing page for a celebrity with biography, media gallery, and social
+                                media links.</p>
+
+                            <div class="tech-icons mb-2">
+                                <i class="fab fa-html5 text-danger me-2"></i>
+                                <i class="fab fa-css3-alt text-primary me-2"></i>
+                                <i class="fab fa-js-square text-warning me-2"></i>
+                                <i class="fab fa-bootstrap text-purple me-2"></i>
+                            </div>
+
+                            <div class="mb-2">
+                                <span class="badge bg-success me-1">Landing Page</span>
+                                <span class="badge bg-secondary me-1">Bootstrap</span>
+                                <span class="badge bg-info text-dark">Responsive</span>
+                            </div>
+
+                            <a href="https://your-live-link.com" target="_blank"
+                                class="btn btn-outline-dark btn-sm me-2">Live Site</a>
+                            <a href="https://github.com/your-repo" target="_blank"
+                                class="btn btn-outline-dark btn-sm">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 (example for pagination) -->
+                <div class="col-md-4">
+                    <div class="card mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <img src="./image/project.png" class="card-img-top" alt="Project Screenshot">
+                        <div class="card-body">
+                            <h5 class="card-title">Blog Template</h5>
+                            <p class="card-text">Minimalist blog layout with article previews and category filters.</p>
+
+                            <div class="tech-icons mb-2">
+                                <i class="fab fa-html5 text-danger me-2"></i>
+                                <i class="fab fa-css3-alt text-primary me-2"></i>
+                                <i class="fab fa-js-square text-warning me-2"></i>
+                            </div>
+
+                            <div class="mb-2">
+                                <span class="badge bg-success me-1">Blog</span>
+                                <span class="badge bg-secondary me-1">Minimal</span>
+                                <span class="badge bg-info text-dark">Mobile-Friendly</span>
+                            </div>
+
+                            <a href="https://your-live-link.com" target="_blank"
+                                class="btn btn-outline-dark btn-sm me-2">Live Site</a>
+                            <a href="https://github.com/your-repo" target="_blank"
+                                class="btn btn-outline-dark btn-sm">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pagination Buttons -->
+            <div id="pagination" class="text-center mt-4"></div>
+        </div>
+    </section>
+
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Skills</h2>
+            <div class="row text-center">
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fab fa-html5 fa-3x text-danger"></i>
+                    <h5 class="mt-2">HTML5</h5>
+                </div>
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fab fa-css3-alt fa-3x text-primary"></i>
+                    <h5 class="mt-2">CSS3</h5>
+                </div>
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fab fa-js-square fa-3x text-warning"></i>
+                    <h5 class="mt-2">JavaScript</h5>
+                </div>
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fab fa-bootstrap fa-3x text-purple"></i>
+                    <h5 class="mt-2">Bootstrap</h5>
+                </div>
+                <!-- Add more skills here -->
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fab fa-php fa-3x text-info"></i>
+                    <h5 class="mt-2">PhP</h5>
+                </div>
+                <div class="col-6 col-md-3 mb-4 text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webflow/webflow-original.svg"
+                        alt="Webflow" style="height: 48px;" />
+                    <h5 class="mt-2">Webflow</h5>
+                </div>
+                <div class="col-6 col-md-3 mb-4 text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"
+                        style="height: 48px;" />
+                    <h5 class="mt-2">Figma</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer Unified -->
+    <section id="contact" class="py-5 text-white" style="background-color: #171717;">
+        <div class="container">
+            <h2 class="text-center mb-4">Contact Me</h2>
+            <form id="contactForm" class="mx-auto" style="max-width: 600px;" data-aos="fade-up">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" required />
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required />
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primarys w-100">Send</button>
+            </form>
+
+            <!-- Social Links -->
+            <div class="text-center mt-4">
+                <a href="https://github.com/yourusername" target="_blank" class="text-white me-3 fs-4">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="text-white me-3 fs-4">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://twitter.com/yourusername" target="_blank" class="text-white me-3 fs-4">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="mailto:youremail@example.com" class="text-white fs-4">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+
+            <!-- Footer (merged into contact) -->
+            <div class="text-center mt-5 pt-4 border-top border-secondary">
+                <small>© 2025 Clinton Freeman. All rights reserved.</small>
+            </div>
+            <!-- Back to Top Button -->
+            <button id="backToTop" class="btn btn-primary rounded-circle position-fixed"
+                style="bottom: 20px; right: 20px; display: none; z-index: 999;">
+                <i class="fas fa-arrow-up  text-white"></i>
+            </button>
+        </div>
+
+
+
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        new Typed('#typed-text', {
+            strings: ['Web Developer.', 'UI Designer.', 'Frontend Enthusiast.', 'JavaScript Lover.', 'A true Freeman'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true,
+        });
+    </script>
+
+    <script src="script.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,         // Animation speed (ms)
+            easing: 'ease-in-out',  // Animation style
+            once: true,             // Only animate once per element
+            mirror: false,          // Don’t animate on scroll up
+        });
+
+    </script>
+
+</body>
+
+</html>
